@@ -10,7 +10,6 @@ def incoming_sms():
     """Send a dynamic reply to an incoming text message"""
     # Get the message the user sent our Twilio number
     body = request.form['Body']
-    number = request.form['From']
 
     # Start our TwiML response
     resp = MessagingResponse()
