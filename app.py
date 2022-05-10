@@ -16,12 +16,11 @@ def incoming_sms():
     resp = MessagingResponse()
 
     # Determine the right reply for this message
-    if body == '2':
+    if body == '1' or body == 1:
+        resp.message("Hi!, Great to hear that. Continue to have a great day!")
+    elif body == '2' or body == 2:
         resp.message("Hi! We are sorry to hear that. But we are hear for you. Call this number: 0800 000 000 to speak "
                      "to our specialist.")
-    elif body == '1':
-        resp.message("Hi!, Great to hear that. Continue to have a great day!")
-
     return str(resp)
 
 
