@@ -9,8 +9,8 @@ app = Flask(__name__)
 def incoming_sms():
     """Send a dynamic reply to an incoming text message"""
     # Get the message the user sent our Twilio number
-    body = request.values.get('Body', None)
-    number = request.values.get('from', None)
+    body = request.form['Body']
+    number = request.form['from']
 
     # Start our TwiML response
     resp = MessagingResponse()
@@ -21,6 +21,8 @@ def incoming_sms():
     elif body == '2' or body == 2:
         resp.message("Hi! We are sorry to hear that. But we are hear for you. Call this number: 0800 000 000 to speak "
                      "to our specialist.")
+    else:
+        resp.message('Error')
     return str(resp)
 
 
